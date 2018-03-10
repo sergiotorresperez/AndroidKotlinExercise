@@ -26,7 +26,7 @@ class ShowCreditScorePresenterTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        sut = ShowCreditScorePresenter(view, getCreditScoreInteractor)
+        sut = ShowCreditScorePresenter(view, TestSchedulersProvider(), getCreditScoreInteractor)
     }
 
     @Test

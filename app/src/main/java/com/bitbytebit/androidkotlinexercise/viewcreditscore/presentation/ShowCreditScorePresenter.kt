@@ -26,6 +26,7 @@ import javax.inject.Inject
  */
 class ShowCreditScorePresenter @Inject constructor(
         private val view : View,
+        private val schedulersProvider: SchedulersProvider,
         private val getCreditScoreInteractor : GetCreditScoreInteractor) {
 
     companion object {
@@ -44,6 +45,8 @@ class ShowCreditScorePresenter @Inject constructor(
 
     private fun getCreditScore() {
         val subscription = getCreditScoreInteractor.getCreditScore()
+                .subscribeOn(schedulersProvider.getExecutionScheduler())
+                .observeOn(schedulersProvider.getPostExecutionScheduler())
                 .subscribe({ processGetCreditScoreSuccess(it) },
                            { processGetCreditScoreError(it) })
 
