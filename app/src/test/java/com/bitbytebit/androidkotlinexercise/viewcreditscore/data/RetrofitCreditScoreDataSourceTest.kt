@@ -39,5 +39,12 @@ class RetrofitCreditScoreDataSourceTest {
                 .assertValue { it == expected }
     }
 
+    @Test
+    fun errorsSettingCreditScore() {
+        val score = mock(CreditScore::class.java)
+        sut.setCreditScore(score).test()
+                .assertError(UnsupportedOperationException::class.java)
+    }
+
 }
 

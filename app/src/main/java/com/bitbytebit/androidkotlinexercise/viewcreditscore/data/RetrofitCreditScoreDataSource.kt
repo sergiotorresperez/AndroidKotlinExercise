@@ -2,12 +2,13 @@ package com.bitbytebit.androidkotlinexercise.viewcreditscore.data
 
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScore
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScoreDataSource
+import io.reactivex.Completable
 import io.reactivex.Maybe
+import java.lang.UnsupportedOperationException
 
 class RetrofitCreditScoreDataSource(
         private val service : CreditScoreService,
         private val mapper: CreditScoreGetResponseMapper = CreditScoreGetResponseMapper()) : CreditScoreDataSource {
-
 
     override fun getCreditScore(): Maybe<CreditScore> {
         return service.getCreditScore()
@@ -15,4 +16,7 @@ class RetrofitCreditScoreDataSource(
                 .flatMapMaybe { Maybe.just(it) }
     }
 
+    override fun setCreditScore(score: CreditScore) : Completable {
+        return Completable.error(UnsupportedOperationException("Posting credit score is not supported"))
+    }
 }
