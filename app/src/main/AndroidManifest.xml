@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewcreditscore.presentation.ShowCreditScoreActivity">
+        <activity android:name=".showcreditscore.presentation.ShowCreditScoreActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

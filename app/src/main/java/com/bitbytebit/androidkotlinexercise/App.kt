@@ -2,10 +2,10 @@ package com.bitbytebit.androidkotlinexercise
 
 import android.app.Application
 import android.content.Context
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.di.AppComponent
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.di.AppModule
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.di.CreditScoreRepositoryModule
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.di.DaggerAppComponent
+import com.bitbytebit.androidkotlinexercise.showcreditscore.di.AppComponent
+import com.bitbytebit.androidkotlinexercise.showcreditscore.di.AppModule
+import com.bitbytebit.androidkotlinexercise.showcreditscore.di.CreditScoreRepositoryModule
+import com.bitbytebit.androidkotlinexercise.showcreditscore.di.DaggerAppComponent
 
 class App : Application() {
 
