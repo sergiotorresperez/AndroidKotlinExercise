@@ -1,8 +1,5 @@
-package com.bitbytebit.androidkotlinexercise.viewcreditscore.data
+package com.bitbytebit.androidkotlinexercise.viewcreditscore.domain
 
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScore
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScoreDataSource
-import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScoreRepository
 import com.nhaarman.mockito_kotlin.any
 import io.reactivex.Completable
 import io.reactivex.Maybe

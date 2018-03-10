@@ -25,6 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+        // To avoid issues with android.util.Logger in unit tests
+        // REF: https://stackoverflow.com/questions/36787449/how-to-mock-method-e-in-log
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {

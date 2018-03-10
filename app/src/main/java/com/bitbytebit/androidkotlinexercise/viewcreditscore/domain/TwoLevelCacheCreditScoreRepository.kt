@@ -1,4 +1,4 @@
-package com.bitbytebit.androidkotlinexercise.viewcreditscore.data
+package com.bitbytebit.androidkotlinexercise.viewcreditscore.domain
 
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScore
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScoreDataSource
