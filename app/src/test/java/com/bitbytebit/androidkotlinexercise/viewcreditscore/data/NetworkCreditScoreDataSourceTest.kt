@@ -10,7 +10,7 @@ import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import org.mockito.Mockito.`when` as whenever
 
-class RetrofitCreditScoreDataSourceTest {
+class NetworkCreditScoreDataSourceTest {
 
     private lateinit var sut : CreditScoreDataSource
 
@@ -23,7 +23,7 @@ class RetrofitCreditScoreDataSourceTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        sut = RetrofitCreditScoreDataSource(service, mapper)
+        sut = NetworkCreditScoreDataSource(service, mapper)
     }
 
     @Test

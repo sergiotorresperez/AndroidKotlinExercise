@@ -4,15 +4,24 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.bitbytebit.androidkotlinexercise.R
+import com.bitbytebit.androidkotlinexercise.from
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScore
+import com.bitbytebit.androidkotlinexercise.viewcreditscore.presentation.di.ShowCreditScoreActivityModule
+import javax.inject.Inject
+
 
 class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.View {
 
+    @Inject
     lateinit var presenter : ShowCreditScorePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_credit_score)
+
+        application.from(this)
+                .appComponent.plus(ShowCreditScoreActivityModule(this))
+                .inject(this)
     }
 
     override fun onStart() {

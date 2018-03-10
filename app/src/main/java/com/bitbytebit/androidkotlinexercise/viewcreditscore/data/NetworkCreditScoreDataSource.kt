@@ -6,7 +6,7 @@ import io.reactivex.Completable
 import io.reactivex.Maybe
 import java.lang.UnsupportedOperationException
 
-class RetrofitCreditScoreDataSource(
+class NetworkCreditScoreDataSource(
         private val service : CreditScoreService,
         private val mapper: CreditScoreGetResponseMapper = CreditScoreGetResponseMapper()) : CreditScoreDataSource {
 

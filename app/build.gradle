@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+// For Dagger2
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -56,6 +56,11 @@ dependencies {
     // REF: https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
+    // Dagger2 - for dependency injection
+    // REF: https://kotlinlang.org/docs/reference/kapt.html
+    kapt 'com.google.dagger:dagger-compiler:2.9'
+    implementation 'com.google.dagger:dagger:2.9'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

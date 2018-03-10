@@ -4,6 +4,7 @@ import android.util.Log
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.CreditScore
 import com.bitbytebit.androidkotlinexercise.viewcreditscore.domain.GetCreditScoreInteractor
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
 /*
     Design notes about this presenter:
@@ -23,7 +24,7 @@ import io.reactivex.disposables.CompositeDisposable
       I prefer to do so in the presenter so that interactors can be chained more easily, but I'm
       fine either way.
  */
-class ShowCreditScorePresenter(
+class ShowCreditScorePresenter @Inject constructor(
         private val view : View,
         private val getCreditScoreInteractor : GetCreditScoreInteractor) {
 

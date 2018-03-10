@@ -1,7 +1,7 @@
 package com.bitbytebit.androidkotlinexercise.viewcreditscore.data
 
 import android.support.test.runner.AndroidJUnit4
-import com.bitbytebit.androidkotlinexercise.test.BuildConfig
+import com.bitbytebit.androidkotlinexercise.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Before
