@@ -54,4 +54,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Mockito: to mock dependencies in unit tests
+    // REF: https://github.com/nhaarman/mockito-kotlin
+    testCompile "com.nhaarman:mockito-kotlin:1.5.0"
 }

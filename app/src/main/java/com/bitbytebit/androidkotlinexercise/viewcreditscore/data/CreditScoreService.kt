@@ -10,5 +10,5 @@ interface CreditScoreService {
 
     // TODO: the environment (prod) should not be part of the path and should be configured somewhere else
     @GET("/prod/mockcredit/values")
-    fun getCreditScore() : Single<CreditScoreGetResponse>
+    fun getCreditScore() : Single<CreditScoreResponse>
 }

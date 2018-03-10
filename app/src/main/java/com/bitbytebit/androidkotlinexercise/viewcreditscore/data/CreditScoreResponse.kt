@@ -7,7 +7,7 @@ import com.squareup.moshi.Json
  * These were automatically generated using RoboPOJOGenerator
  * REF: https://github.com/robohorse/RoboPOJOGenerator
  */
-data class CreditScoreGetResponse(
+data class CreditScoreResponse(
 
 	@Json(name="dashboardStatus")
 	val dashboardStatus: String? = null,
