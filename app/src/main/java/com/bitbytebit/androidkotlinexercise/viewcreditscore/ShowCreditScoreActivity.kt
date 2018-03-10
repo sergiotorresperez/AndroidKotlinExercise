@@ -1,7 +1,8 @@
-package com.bitbytebit.androidkotlinexercise
+package com.bitbytebit.androidkotlinexercise.viewcreditscore
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.bitbytebit.androidkotlinexercise.R
 
 class ShowCreditScoreActivity : AppCompatActivity() {
 
