@@ -1,7 +1,7 @@
 package com.bitbytebit.androidkotlinexercise.viewcreditscore.domain
 
-import io.reactivex.Single
+import io.reactivex.Maybe
 
 interface CreditScoreDataSource {
-    fun getCreditScore() : Single<CreditScore>
+    fun getCreditScore() : Maybe<CreditScore>
 }
