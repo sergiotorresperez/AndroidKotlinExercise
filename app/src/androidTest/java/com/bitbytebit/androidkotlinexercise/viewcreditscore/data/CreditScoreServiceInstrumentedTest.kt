@@ -4,11 +4,11 @@ import android.support.test.runner.AndroidJUnit4
 import com.bitbytebit.androidkotlinexercise.test.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
@@ -29,6 +29,7 @@ class CreditScoreServiceInstrumentedTest {
         val retrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.CREDIT_SCORE_API_BASE_URL)
                 .client(okHttpClient)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
 
@@ -37,16 +38,14 @@ class CreditScoreServiceInstrumentedTest {
 
     @Test
     fun getsCreditScore() {
-        val response = sut.getCreditScore().execute()
-        assertEquals("HTTP request code should be 200", 200, response.code())
-
-        val scoreGetResponse = sut.getCreditScore().execute().body()
-
-        val actualMin = scoreGetResponse?.creditReportInfo?.minScoreValue ?: throw AssertionError("MinScore should not be null")
-        val actualMax = scoreGetResponse.creditReportInfo?.maxScoreValue ?: throw AssertionError("MaxScore should not be null")
-        val actualScore = scoreGetResponse.creditReportInfo?.score ?: throw AssertionError("Score should not be null")
-
-        assert(actualScore in actualMin..actualMax)
+        sut.getCreditScore().test()
+                .assertComplete()
+                .assertValue({
+                    val actualMin = it.creditReportInfo?.minScoreValue ?: throw AssertionError("MinScore should not be null")
+                    val actualMax = it.creditReportInfo?.maxScoreValue ?: throw AssertionError("MaxScore should not be null")
+                    val actualScore = it.creditReportInfo?.score ?: throw AssertionError("Score should not be null")
+                    actualScore in actualMin..actualMax
+                })
     }
 
 }
