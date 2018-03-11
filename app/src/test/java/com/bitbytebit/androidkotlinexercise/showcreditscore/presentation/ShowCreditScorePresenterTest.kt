@@ -31,6 +31,15 @@ class ShowCreditScorePresenterTest {
     }
 
     @Test
+    fun showsGettingCreditSocre() {
+        whenever(getCreditScoreInteractor.getCreditScore()).thenReturn(Single.never())
+
+        sut.startPresenting()
+
+        verify(view).showGettingCreditScore()
+    }
+
+    @Test
     fun showsCreditScore() {
         val score = Mockito.mock(CreditScore::class.java)
         whenever(getCreditScoreInteractor.getCreditScore()).thenReturn(Single.just(score))

@@ -48,6 +48,7 @@ class ShowCreditScorePresenter @Inject constructor(
         val subscription = getCreditScoreInteractor.getCreditScore()
                 .subscribeOn(schedulersProvider.getExecutionScheduler())
                 .observeOn(schedulersProvider.getPostExecutionScheduler())
+                .doOnSubscribe({view.showGettingCreditScore()})
                 .subscribe({ processGetCreditScoreSuccess(it) },
                            { processGetCreditScoreError(it) })
 
@@ -64,6 +65,7 @@ class ShowCreditScorePresenter @Inject constructor(
     }
 
     interface View {
+        fun showGettingCreditScore()
         fun showCreditScore(creditScore: CreditScore)
         fun showGetCreditScoreError(error: Throwable)
     }

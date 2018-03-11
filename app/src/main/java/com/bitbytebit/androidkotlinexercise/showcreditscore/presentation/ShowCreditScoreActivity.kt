@@ -2,8 +2,10 @@ package com.bitbytebit.androidkotlinexercise.showcreditscore.presentation
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.view.animation.DecelerateInterpolator
 import com.bitbytebit.androidkotlinexercise.R
 import com.bitbytebit.androidkotlinexercise.from
@@ -11,8 +13,6 @@ import com.bitbytebit.androidkotlinexercise.showcreditscore.di.ShowCreditScoreAc
 import com.bitbytebit.androidkotlinexercise.showcreditscore.domain.CreditScore
 import kotlinx.android.synthetic.main.activity_show_credit_score.*
 import javax.inject.Inject
-
-
 
 
 class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.View {
@@ -46,8 +46,16 @@ class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.Vi
         presenter.stopPresenting()
     }
 
+    override fun showGettingCreditScore() {
+        progressBar.visibility = View.VISIBLE
+        creditScoreView.visibility = View.GONE
+    }
+
     override fun showCreditScore(creditScore: CreditScore) {
         Log.i("ShowCreditScore", "gotten $creditScore")
+
+        progressBar.visibility = View.GONE
+        creditScoreView.visibility = View.VISIBLE
 
         creditScoreView.min = creditScore.min
         creditScoreView.max = creditScore.max
@@ -66,5 +74,12 @@ class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.Vi
 
     override fun showGetCreditScoreError(error: Throwable) {
         Log.e("ShowCreditScore", "error", error)
+        progressBar.visibility = View.GONE
+
+        AlertDialog.Builder(this)
+                .setMessage(R.string.get_score_error)
+                .create()
+                .show()
+
     }
 }
