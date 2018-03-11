@@ -1,7 +1,6 @@
 package com.bitbytebit.androidkotlinexercise.showcreditscore.domain
 
 import io.reactivex.Maybe
-import io.reactivex.MaybeSource
 import io.reactivex.Single
 
 /**
@@ -28,19 +27,18 @@ class TwoLevelCacheCreditScoreRepository(
 
     private fun fetchCreditScoreFromNetwork(): Maybe<CreditScore> {
         return networkDataSource.getCreditScore()
-                .compose({ cacheInDataSource(localStorageDataSource, it) })
-                .compose({ cacheInDataSource(memoryDataSource, it) })
+                .flatMap {cacheInDataSource(it, localStorageDataSource) }
+                .flatMap {cacheInDataSource(it, memoryDataSource) }
     }
 
     private fun loadCreditScoreFromLocalStorage(): Maybe<CreditScore> {
         return localStorageDataSource.getCreditScore()
-                .compose({ cacheInDataSource(memoryDataSource, it) })
+              .flatMap { it -> cacheInDataSource(it, memoryDataSource) }
     }
 
-    private fun cacheInDataSource(dataSource: CreditScoreDataSource, upstream: Maybe<CreditScore>): MaybeSource<CreditScore> {
-        return upstream
-                .flatMapCompletable { dataSource.setCreditScore(it) }
-                .andThen(upstream)
+    private fun cacheInDataSource(score: CreditScore, dataSource: CreditScoreDataSource): Maybe<CreditScore> {
+        return dataSource.setCreditScore(score)
+                .andThen(Maybe.just(score))
     }
 
 }
