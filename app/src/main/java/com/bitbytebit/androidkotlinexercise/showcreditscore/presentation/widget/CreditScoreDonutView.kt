@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import com.bitbytebit.androidkotlinexercise.R
 import kotlinx.android.synthetic.main.view_credit_score.view.*
 
-class CreditScoreView : FrameLayout {
+class CreditScoreDonutView : FrameLayout {
 
     var min : Int = 0
 

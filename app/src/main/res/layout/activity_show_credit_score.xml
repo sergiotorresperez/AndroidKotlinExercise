@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
-    <com.bitbytebit.androidkotlinexercise.showcreditscore.presentation.widget.CreditScoreView
+    <com.bitbytebit.androidkotlinexercise.showcreditscore.presentation.widget.CreditScoreDonutView
         android:id="@+id/creditScoreView"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="280dp"
         android:layout_height="280dp"
         android:layout_centerInParent="true">
-    </com.bitbytebit.androidkotlinexercise.showcreditscore.presentation.widget.CreditScoreView>
+    </com.bitbytebit.androidkotlinexercise.showcreditscore.presentation.widget.CreditScoreDonutView>
 
 </RelativeLayout>

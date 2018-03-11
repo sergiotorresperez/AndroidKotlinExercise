@@ -70,8 +70,7 @@ class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.Vi
         }
 
     }
-
-
+    
     override fun showGetCreditScoreError(error: Throwable) {
         Log.e("ShowCreditScore", "error", error)
         progressBar.visibility = View.GONE
