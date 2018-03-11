@@ -26,6 +26,13 @@ This is implemented used three `DataSources` (remote, local storage, memory cach
 of the `CreditScoreRepository` delegates into and coordinates.
 This complexity is concealed in the implementation of the `CreditScoreRepository` and is not leaked to the presentation logic.
 
+### Packages structure
+
+I normally create "feature packages": one package for each feature/screen, so that you see the features by looking at the root packages.
+In this case there is only one "feature package": `showcreditscore`
+
+The `showcreditscore` is split in the main layers of the clean architecture: presentation, domain and data
+
 ### Over-engineering
 For an exercise as simple as this, this is ridiculously over engineered:
 
