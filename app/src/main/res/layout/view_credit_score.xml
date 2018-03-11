@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/credit_score_outer_ring"
+    android:padding="5dp"
+    tools:context="com.bitbytebit.androidkotlinexercise.showcreditscore.presentation.ShowCreditScoreActivity">
+
+    <ProgressBar
+        android:id="@+id/creditScoreProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:max="700"
+        android:progress="300"
+        android:progressDrawable="@drawable/credit_score_inner_ring"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/creditScoreViewSecondary"
+            android:progressDrawable="@drawable/credit_score_inner_ring"
+            android:text="@string/credit_score_view_label"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/creditScoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/credit_score_inner_ring"
+            android:textColor="@color/creditScoreViewPrimary"
+            android:textSize="70sp"
+            tools:text="327"/>
+
+        <TextView
+            android:id="@+id/creditScoreMaxTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/creditScoreViewSecondary"
+            android:progressDrawable="@drawable/credit_score_inner_ring"
+            android:text="@string/credit_score_view_max"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

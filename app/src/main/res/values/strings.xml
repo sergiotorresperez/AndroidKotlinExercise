@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidKotlinExercise</string>
+    <string name="credit_score_view_label">Your credit score is</string>
+    <string name="credit_score_view_max">out of %1$d</string>
 </resources>
