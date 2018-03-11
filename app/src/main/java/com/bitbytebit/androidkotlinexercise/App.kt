@@ -23,4 +23,4 @@ class App : Application() {
 
 }
 
-fun Application.from(context : Context) : App = context.applicationContext as App
+fun Context.getApp() : App = this.applicationContext as App

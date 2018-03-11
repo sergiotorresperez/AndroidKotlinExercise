@@ -8,7 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import com.bitbytebit.androidkotlinexercise.R
-import com.bitbytebit.androidkotlinexercise.from
+import com.bitbytebit.androidkotlinexercise.getApp
 import com.bitbytebit.androidkotlinexercise.showcreditscore.di.ShowCreditScoreActivityModule
 import com.bitbytebit.androidkotlinexercise.showcreditscore.domain.CreditScore
 import kotlinx.android.synthetic.main.activity_show_credit_score.*
@@ -31,8 +31,7 @@ class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.Vi
         isRecreated = savedInstanceState != null
         setContentView(R.layout.activity_show_credit_score)
 
-        application.from(this)
-                .appComponent.plus(ShowCreditScoreActivityModule(this))
+        getApp().appComponent.plus(ShowCreditScoreActivityModule(this))
                 .inject(this)
     }
 
@@ -70,7 +69,7 @@ class ShowCreditScoreActivity : AppCompatActivity(), ShowCreditScorePresenter.Vi
         }
 
     }
-    
+
     override fun showGetCreditScoreError(error: Throwable) {
         Log.e("ShowCreditScore", "error", error)
         progressBar.visibility = View.GONE
